@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>データサイエンスを知ろう｜統計・Python・AI・機械学習をわかりやすく学ぶ</title>
+  <meta name="description" content="データサイエンスとは何かを初心者向けにわかりやすく解説。統計学、Python、プログラミング、機械学習、AI、データ分析の基礎から、活用例、分析の流れ、仕事、資格（統計検定・生成AIパスポート・DS検定・G検定・ITパスポート・基本情報技術者試験）まで紹介します。">
+  <meta name="keywords" content="データサイエンス,データサイエンスとは,データ分析,統計学,統計,Python,プログラミング,機械学習,AI,生成AI,データサイエンティスト,データアナリスト,統計検定,生成AIパスポート,DS検定,G検定,ITパスポート,基本情報技術者試験">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="author" content="データサイエンスを知ろう">
+  <meta name="theme-color" content="#3c8a55">
+  <link rel="canonical" href="https://YOUR-USERNAME.github.io/YOUR-REPOSITORY/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="データサイエンスとは？｜統計・Python・AIをわかりやすく学ぶ">
+  <meta property="og:description" content="統計学・Python・機械学習・AIなど、データサイエンスの基礎を初心者向けにわかりやすく紹介。活用例、分析の流れ、仕事、資格も解説。">
+  <meta property="og:url" content="https://YOUR-USERNAME.github.io/YOUR-REPOSITORY/">
+  <meta property="og:site_name" content="データサイエンスを知ろう">
+  <meta property="og:locale" content="ja_JP">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="データサイエンスとは？｜データサイエンスを知ろう">
+  <meta name="twitter:description" content="統計・Python・AI・機械学習など、データサイエンスを初心者向けにわかりやすく解説。">
+
+<style>
+
+:root{
+  --green:#78c67e; --pink:#ef9297; --blue:#62b7e8;
+  --dark:#20242b; --muted:#68717d; --bg:#f7f8fb; --card:#fff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans JP","Yu Gothic",sans-serif;color:var(--dark);background:var(--bg);line-height:1.8}
+a{color:inherit;text-decoration:none}
+header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid #e9ebef}
+nav{max-width:1100px;margin:auto;padding:14px 22px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-weight:800;font-size:20px}.logo span{color:#5cae72}
+nav .links{display:flex;gap:8px;font-size:14px;color:#59616c}
+nav .links a{padding:8px 13px;border-radius:10px;transition:.2s ease}
+nav .links a:hover{background:#e8f5ec;color:#3c8a55}
+nav .links a.active{background:#78c67e;color:#fff;font-weight:800}
+.hero{max-width:1100px;margin:auto;padding:75px 22px 55px;display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}
+.badge{display:inline-block;padding:6px 13px;border-radius:99px;background:#e8f5ec;color:#3c8a55;font-weight:700;font-size:13px}
+h1{font-size:clamp(38px,6vw,68px);line-height:1.15;margin:18px 0}
+.hero p{font-size:18px;color:var(--muted);max-width:600px}
+.cta{display:inline-block;margin-top:12px;background:var(--dark);color:#fff;padding:12px 22px;border-radius:12px;font-weight:700}
+.venn{height:360px;position:relative;max-width:500px;margin:auto}
+.circle{position:absolute;width:245px;height:245px;border-radius:50%;display:flex;align-items:flex-start;justify-content:center;padding-top:55px;font-weight:800;color:#fff;text-align:center}
+.c1{left:18px;top:5px;background:rgba(120,198,126,.88)}
+.c2{right:18px;top:5px;background:rgba(239,146,151,.88)}
+.c3{left:128px;top:115px;background:rgba(98,183,232,.88);padding-top:145px}
+.venn .center{position:absolute;z-index:3;left:50%;top:150px;transform:translate(-50%,-50%);font-weight:900;font-size:24px;text-align:center}
+section{max-width:1100px;margin:auto;padding:70px 22px}
+.section-title{text-align:center;margin-bottom:35px}
+.section-title h2{font-size:34px;margin:0 0 8px}.section-title p{color:var(--muted);margin:0}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:var(--card);border:1px solid #e7e9ed;border-radius:18px;padding:24px;box-shadow:0 5px 18px rgba(30,40,55,.05)}
+.icon{font-size:30px}.card h3{margin:8px 0 5px}.card p{color:var(--muted);margin:0}
+.examples{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.example{background:#fff;border-radius:18px;padding:26px;border:1px solid #e7e9ed}
+.example h3{margin-top:0}.tag{display:inline-block;font-size:12px;padding:3px 9px;border-radius:99px;background:#f0f2f5;margin:3px}
+.timeline{display:grid;gap:14px}.step{display:flex;gap:18px;align-items:flex-start;background:#fff;border:1px solid #e7e9ed;padding:18px;border-radius:15px}
+.num{min-width:34px;height:34px;border-radius:50%;background:#20242b;color:#fff;display:grid;place-items:center;font-weight:800}
+.quiz{background:#20242b;color:#fff;border-radius:22px;padding:34px;max-width:850px;margin:auto}
+.quiz button{border:0;background:#fff;color:#20242b;border-radius:10px;padding:10px 16px;margin:5px;cursor:pointer;font-weight:700}
+#result{margin-top:18px;font-size:18px;font-weight:700;min-height:28px}
+footer{background:#20242b;color:#cbd0d7;text-align:center;padding:35px 20px}
+
+
+to{opacity:1;transform:translateY(0)}}
+
+.
+.
+.
+.
+
+
+.tag-button{font:inherit;cursor:pointer;border:none;transition:.2s ease}
+.tag-button:hover{background:#dfe9ee;transform:translateY(-1px)}
+.supplement-info{display:none;margin-top:14px;padding:16px 18px;background:#f1f8f3;border-left:4px solid #78c67e;border-radius:12px;color:#4f5963}
+.supplement-info.show{display:block;animation:fadeIn .2s ease}
+.supplement-info strong{display:block;color:#2f7e45;margin-bottom:5px}
+.supplement-info p{font-size:13px;margin:4px 0;line-height:1.7}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:760px){
+ nav .links{display:none}.hero{grid-template-columns:1fr;padding-top:45px}.venn{transform:scale(.82);transform-origin:center top;margin-bottom:-55px}
+ .cards,.examples{grid-template-columns:1fr}
+ section{padding:52px 18px}.hero{padding-left:18px;padding-right:18px}
+}
+
+.page-main{max-width:1100px;margin:auto;padding:55px 22px 80px}
+.page-hero{background:#fff;border:1px solid #e7e9ed;border-radius:24px;padding:42px;margin-bottom:28px}
+.page-hero h1{font-size:42px;line-height:1.3;margin:8px 0 12px}
+.page-hero p{color:#68717d;font-size:17px}
+.info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.info-card{background:#fff;border:1px solid #e7e9ed;border-radius:18px;padding:26px}
+.info-card h2{margin-top:0}
+.info-card p,.feature p{color:#68717d}
+.feature-list{display:grid;gap:14px}
+.feature{background:#fff;border:1px solid #e7e9ed;border-radius:15px;padding:20px}
+.feature b{font-size:18px}
+.next-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.next-links button{background:#20242b;color:#fff;border:0;padding:10px 17px;border-radius:10px;cursor:pointer}
+.site-page{display:none}
+.site-page.active{display:block}
+
+.nav-page.active{background:#e8f5ec;color:#3c8a55;font-weight:800}
+.reference-list{margin:0;padding-left:22px}
+.reference-list li{margin:0 0 18px;padding-left:4px}
+.reference-list a{color:#2f7e45;font-weight:800;text-decoration:underline;text-underline-offset:3px}
+.reference-list small{display:block;color:#68717d;margin-top:3px;line-height:1.6}
+.reference-note{margin-top:24px;background:#f1f8f3;border:1px solid #dceee0;border-radius:18px;padding:22px 24px;color:#4f5963}
+.reference-note strong{color:#2f7e45}
+.reference-note p{margin:6px 0}
+.reference-note .access-date{font-size:13px;color:#68717d}
+
+@media(max-width:760px){.info-grid{grid-template-columns:1fr}.page-main{padding:40px 18px 65px}.page-hero h1{font-size:34px}}
+</style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "データサイエンスを知ろう",
+    "alternateName": "Data Science Shiro",
+    "description": "データサイエンス、統計学、Python、機械学習、AI、データ分析を初心者向けにわかりやすく解説するWebサイト。",
+    "url": "https://YOUR-USERNAME.github.io/YOUR-REPOSITORY/",
+    "inLanguage": "ja-JP"
+  }
+  </script>
+
+</head>
+<body>
+
+<header>
+<nav>
+  <div class="logo"><a href="#" onclick="showPage('home');return false;">learn-data-science</a></div>
+  <div class="links">
+    <a href="#" class="nav-page" data-page="learn" onclick="showPage('learn');return false;">学ぶこと</a>
+    <a href="#" class="nav-page" data-page="examples" onclick="showPage('examples');return false;">活用例</a>
+    <a href="#" class="nav-page" data-page="flow" onclick="showPage('flow');return false;">分析の流れ</a>
+    <a href="#" class="nav-page" data-page="career" onclick="showPage('career');return false;">進路・仕事</a>
+    <a href="#" class="nav-page" data-page="certifications" onclick="showPage('certifications');return false;">資格</a>
+    <a href="#" class="nav-page" data-page="references" onclick="showPage('references');return false;">参考文献</a>
+    <a href="#" class="nav-page" data-page="quiz" onclick="showPage('quiz');return false;">診断</a>
+  </div>
+</nav>
+</header>
+
+<main class="page-main">
+
+<section id="home" class="site-page active">
+  <section class="hero">
+    <div>
+      <span class="badge">基礎からわかる</span>
+      <h1>データサイエンス<br>って、何をするの？</h1>
+      <p>統計・プログラミング・数学・機械学習・ビジネスなどを組み合わせて、データから「なぜ？」や「どうしたら？」を考える分野です。</p>
+      <a class="cta" href="#" onclick="showPage('learn');return false;">何を学ぶか見てみる ↓</a>
+    </div>
+    <div class="venn">
+      <div class="circle c1">プログラミング</div>
+      <div class="circle c2">数学・統計学</div>
+      <div class="circle c3">ビジネス力</div>
+      <div class="center">データ<br>サイエンス</div>
+    </div>
+  </section>
+</section>
+
+<section id="learn" class="site-page">
+  <section class="page-hero"><span class="badge">01</span><h1>データサイエンスでは何を学ぶ？</h1><p>統計・数学・プログラミング・機械学習など、さまざまな分野を組み合わせて学びます。</p></section>
+  <div class="info-grid">
+    <article class="info-card"><h2>📊 統計学</h2><p>平均や分散、確率、仮説検定、回帰分析などを学び、データから傾向や関係を読み取ります。</p></article>
+    <article class="info-card"><h2>💻 プログラミング</h2><p>PythonやRなどを使って、データの整理・分析・可視化を行います。Webアプリなどの制作にもつながります。</p></article>
+    <article class="info-card"><h2>🤖 機械学習</h2><p>データから特徴やパターンを学習し、分類や予測などを行う方法を学びます。</p></article>
+    <article class="info-card"><h2>🧮 数学</h2><p>確率や線形代数など、統計や機械学習を理解するための数学を学びます。</p></article>
+    <article class="info-card"><h2>🗃️ データエンジニアリング</h2><p>データを集め、整理し、分析しやすい形に加工するための技術を学びます。</p></article>
+    <article class="info-card"><h2>🏢 ビジネス・社会</h2><p>データから課題を発見し、分析結果を実際の問題解決につなげる考え方を学びます。</p></article>
+  </div>
+</section>
+
+<section id="examples" class="site-page">
+  <section class="page-hero"><span class="badge">02</span><h1>データサイエンスの活用例</h1><p>さまざまな分野で、データを使った課題解決が行われています。</p></section>
+  <div class="examples">
+    <article class="example"><h3>🛒 売上データを分析</h3><p>商品の売上や購入履歴などを分析し、売れやすい商品や購入される時期などの傾向を見つけます。</p>
+      <button class="tag tag-button" onclick="toggleInfo('sales-analysis-info')">データ分析</button>
+      <button class="tag tag-button" onclick="toggleInfo('visualization-info')">可視化</button>
+      <button class="tag tag-button" onclick="toggleInfo('statistics-info')">統計</button>
+      <div id="sales-analysis-info" class="supplement-info"><strong>📊 データ分析って？</strong><p>集めたデータを整理して、数字の特徴や関係性を調べ、意味のある情報を見つけることです。</p></div>
+      <div id="visualization-info" class="supplement-info"><strong>📈 可視化って？</strong><p>データをグラフや表などにして、傾向や違いを分かりやすく表現することです。</p></div>
+      <div id="statistics-info" class="supplement-info"><strong>📐 統計って？</strong><p>データの特徴を数値で表したり、データから全体の傾向を推測したりするための方法です。</p></div>
+    </article>
+    <article class="example"><h3>🏥 医療データを分析</h3><p>健康や診療に関するデータを分析し、病気の傾向を調べたり、研究に役立つ情報を見つけたりします。</p>
+      <button class="tag tag-button" onclick="toggleInfo('medical-statistics-info')">統計解析</button>
+      <button class="tag tag-button" onclick="toggleInfo('r-info')">R</button>
+      <button class="tag tag-button" onclick="toggleInfo('research-info')">研究</button>
+      <div id="medical-statistics-info" class="supplement-info"><strong>📊 統計解析って？</strong><p>データを統計的な方法で分析し、データの特徴や変数同士の関係などを調べます。</p></div>
+      <div id="r-info" class="supplement-info"><strong>📊 Rって？</strong><p>Rは、データ分析や統計解析に特化したプログラミング言語です。</p></div>
+      <div id="research-info" class="supplement-info"><strong>🔎 研究って？</strong><p>データを集めて分析し、そこから新しい知識や発見を得るために行う活動です。</p></div>
+    </article>
+    <article class="example"><h3>🚃 交通データを分析</h3><p>駅の利用者数や交通量などを分析し、混雑の傾向を調べたり、より便利な交通サービスを考えたりします。</p>
+      <button class="tag tag-button" onclick="toggleInfo('time-series-info')">時系列分析</button>
+      <button class="tag tag-button" onclick="toggleInfo('transport-prediction-info')">予測</button>
+      <button class="tag tag-button" onclick="toggleInfo('transport-visualization-info')">可視化</button>
+      <div id="time-series-info" class="supplement-info"><strong>📅 時系列分析って？</strong><p>時間の順番に並んだデータを分析し、変化の傾向や季節的なパターンなどを調べます。</p></div>
+      <div id="transport-prediction-info" class="supplement-info"><strong>🔮 予測って？</strong><p>過去のデータから、将来の利用者数や交通量などを推定します。</p></div>
+      <div id="transport-visualization-info" class="supplement-info"><strong>📊 可視化って？</strong><p>交通量や利用者数などをグラフなどで表し、違いを分かりやすくします。</p></div>
+    </article>
+    <article class="example"><h3>🎬 おすすめを予測</h3><p>過去の利用データをもとに、利用者が興味を持ちそうな商品や動画、サービスなどを予測します。</p>
+      <button class="tag tag-button" onclick="toggleInfo('python-info')">Python</button>
+      <button class="tag tag-button" onclick="toggleInfo('ml-info')">機械学習</button>
+      <button class="tag tag-button" onclick="toggleInfo('prediction-info')">予測</button>
+      <div id="python-info" class="supplement-info"><strong>🐍 Pythonって？</strong><p>Pythonは、データ分析だけでなく、WebサイトやWebアプリなど、さまざまなものを作ることができるプログラミング言語です。</p></div>
+      <div id="ml-info" class="supplement-info"><strong>🤖 機械学習って？</strong><p>機械学習は、データから特徴やパターンを学習し、分類や予測などに利用する方法です。</p></div>
+      <div id="prediction-info" class="supplement-info"><strong>🔮 予測って？</strong><p>過去のデータから見つけた傾向を利用して、これから起こることなどを推定します。</p></div>
+    </article>
+  </div>
+</section>
+
+<section id="flow" class="site-page">
+  <section class="page-hero"><span class="badge">03</span><h1>データ分析はどうやって進める？</h1><p>問題を決め、データを集め、分析し、結果を活用するまでがデータサイエンスです。</p></section>
+  <div class="feature-list">
+    <div class="feature"><b>01　問題を決める</b><p>「何を知りたいのか」「どんな問題を解決したいのか」を明確にします。</p></div>
+    <div class="feature"><b>02　データを集める</b><p>必要なデータを集め、どんなデータが使えるのかを確認します。</p></div>
+    <div class="feature"><b>03　データを整理する</b><p>欠損値や表記の違いなどを確認し、分析できる形に整えます。</p></div>
+    <div class="feature"><b>04　可視化・分析する</b><p>グラフや統計、回帰分析、機械学習などを使って特徴を調べます。</p></div>
+    <div class="feature"><b>05　結果を解釈する</b><p>数字だけを見るのではなく、「なぜこの結果になったのか」を考えます。</p></div>
+    <div class="feature"><b>06　伝える・活用する</b><p>分析結果を分かりやすく伝え、意思決定や課題解決につなげます。</p></div>
+  </div>
+</section>
+
+<section id="career" class="site-page">
+  <section class="page-hero"><span class="badge">04</span><h1>データサイエンスを学ぶと、どんな仕事につながる？</h1><p>データを扱う力は、ITだけでなく、企業・研究・行政などさまざまな分野で活かせます。</p></section>
+  <div class="info-grid">
+    <article class="info-card"><h2>📊 データサイエンティスト</h2><p>統計や機械学習などを使ってデータを分析し、課題解決に役立つ情報を見つけます。</p></article>
+    <article class="info-card"><h2>📈 データアナリスト</h2><p>売上や顧客などのデータを分析し、現状の把握や改善のための情報を提供します。</p></article>
+    <article class="info-card"><h2>💻 ITエンジニア</h2><p>プログラミングやシステム開発の知識を活かして、Webサービスやシステムを作ります。</p></article>
+    <article class="info-card"><h2>🔬 研究・分析職</h2><p>統計解析やデータ処理を使って、研究や調査から新しい知識を見つけます。</p></article>
+    <article class="info-card"><h2>🏢 マーケティング</h2><p>顧客や市場のデータを分析して、商品やサービスの改善を考えます。</p></article>
+    <article class="info-card"><h2>🏛️ 行政・公共分野</h2><p>人口、交通、地域などのデータを分析し、地域の課題を考える場面でも活用できます。</p></article>
+  </div>
+</section>
+
+<section id="certifications" class="site-page">
+  <section class="page-hero">
+    <span class="badge">05</span>
+    <h1>データサイエンスに役立つ資格</h1>
+    <p>統計・AI・データ分析・ITなど、興味のある分野に合わせて資格を選ぶことができます。</p>
+  </section>
+
+  <div class="info-grid">
+    <article class="info-card">
+      <h2>📊 統計検定</h2>
+      <p>統計に関する知識や活用力を評価する検定です。準1級〜4級に加えて、データサイエンス系の試験もあります。</p>
+      <span class="tag">統計</span><span class="tag">データ分析</span>
+      <p><a href="https://www.toukei-kentei.jp/" target="_blank" rel="noopener">公式サイト →</a></p>
+    </article>
+
+    <article class="info-card">
+      <h2>📈 DS検定★</h2>
+      <p>データサイエンス力・データエンジニアリング力・ビジネス力など、データサイエンティストに必要な基礎的な実務能力や知識を確認する検定です。</p>
+      <span class="tag">データサイエンス</span><span class="tag">AI</span>
+      <p><a href="https://www.datascientist.or.jp/dscertification/" target="_blank" rel="noopener">公式サイト →</a></p>
+    </article>
+
+    <article class="info-card">
+      <h2>🤖 G検定</h2>
+      <p>AI・ディープラーニングについての基礎知識や、AIをどのように活用するかを学ぶための検定です。</p>
+      <span class="tag">AI</span><span class="tag">機械学習</span>
+      <p><a href="https://www.jdla.org/certificate/general/" target="_blank" rel="noopener">公式サイト →</a></p>
+    </article>
+
+    <article class="info-card">
+      <h2>✨ 生成AIパスポート</h2>
+      <p>生成AIの基礎知識や活用方法だけでなく、情報漏洩や権利侵害など、生成AIを安全に利用するためのリテラシーを学びます。</p>
+      <span class="tag">生成AI</span><span class="tag">AIリテラシー</span>
+      <p><a href="https://guga.or.jp/outline/" target="_blank" rel="noopener">公式サイト →</a></p>
+    </article>
+
+    <article class="info-card">
+      <h2>💻 ITパスポート</h2>
+      <p>ITの基礎だけでなく、ビジネス・マネジメント・テクノロジなど、デジタル社会で必要となる幅広い基礎知識を学ぶ試験です。</p>
+      <span class="tag">IT基礎</span><span class="tag">DX</span>
+      <p><a href="https://www.ipa.go.jp/shiken/" target="_blank" rel="noopener">公式サイト →</a></p>
+    </article>
+
+    <article class="info-card">
+      <h2>🖥️ 基本情報技術者試験</h2>
+      <p>ITエンジニアを目指す人などを対象に、コンピュータ・アルゴリズム・プログラミング・ネットワークなど、ITの基礎的な知識と技能を学びます。</p>
+      <span class="tag">プログラミング</span><span class="tag">IT</span>
+      <p><a href="https://www.ipa.go.jp/shiken/" target="_blank" rel="noopener">公式サイト →</a></p>
+    </article>
+  </div>
+
+  <div class="next-links">
+    <button onclick="showPage('learn')">学ぶことを見る →</button>
+    <button onclick="showPage('career')">進路・仕事を見る →</button>
+  </div>
+</section>
+
+
+<section id="references" class="site-page">
+  <section class="page-hero">
+    <span class="badge">06</span>
+    <h1>参考文献・参考サイト</h1>
+    <p>このサイトでは、データサイエンス・統計・プログラミング・AI・資格について、主に公的機関や各団体の公式情報を参考にしています。</p>
+  </section>
+
+  <div class="info-grid">
+    <article class="info-card">
+      <h2>📚 データサイエンス・教育</h2>
+      <ul class="reference-list">
+        <li>
+          <a href="https://www.mext.go.jp/a_menu/koutou/suuri_datascience_ai/" target="_blank" rel="noopener">
+            文部科学省「数理・データサイエンス・AI教育」
+          </a>
+          <small>大学等における数理・データサイエンス・AI教育に関する情報</small>
+        </li>
+        <li>
+          <a href="https://www.datascientist.or.jp/" target="_blank" rel="noopener">
+            一般社団法人データサイエンティスト協会
+          </a>
+          <small>データサイエンティストに求められるスキルや検定に関する情報</small>
+        </li>
+      </ul>
+    </article>
+
+    <article class="info-card">
+      <h2>📊 統計・政府統計</h2>
+      <ul class="reference-list">
+        <li>
+          <a href="https://www.e-stat.go.jp/" target="_blank" rel="noopener">
+            e-Stat 政府統計の総合窓口
+          </a>
+          <small>日本の各府省が公表する統計データを検索・利用できる政府統計ポータルサイト</small>
+        </li>
+        <li>
+          <a href="https://www.stat.go.jp/" target="_blank" rel="noopener">
+            総務省統計局
+          </a>
+          <small>国勢調査、人口・世帯、経済などの統計情報</small>
+        </li>
+        <li>
+          <a href="https://www.toukei-kentei.jp/" target="_blank" rel="noopener">
+            統計検定
+          </a>
+          <small>統計に関する知識や活用力を評価する検定の公式サイト</small>
+        </li>
+      </ul>
+    </article>
+
+    <article class="info-card">
+      <h2>💻 プログラミング</h2>
+      <ul class="reference-list">
+        <li>
+          <a href="https://www.python.org/doc/" target="_blank" rel="noopener">
+            Python Documentation
+          </a>
+          <small>Pythonの公式ドキュメント・チュートリアル</small>
+        </li>
+        <li>
+          <a href="https://docs.python.org/ja/3/tutorial/" target="_blank" rel="noopener">
+            Python チュートリアル（日本語）
+          </a>
+          <small>Pythonの基本的な概念や機能を学ぶための公式チュートリアル</small>
+        </li>
+      </ul>
+    </article>
+
+    <article class="info-card">
+      <h2>🤖 AI・機械学習</h2>
+      <ul class="reference-list">
+        <li>
+          <a href="https://scikit-learn.org/" target="_blank" rel="noopener">
+            scikit-learn Documentation
+          </a>
+          <small>Pythonで機械学習を行うための代表的なオープンソースライブラリの公式ドキュメント</small>
+        </li>
+        <li>
+          <a href="https://www.jdla.org/certificate/general/" target="_blank" rel="noopener">
+            一般社団法人日本ディープラーニング協会「G検定」
+          </a>
+          <small>AI・ディープラーニングの活用リテラシーに関する公式情報</small>
+        </li>
+        <li>
+          <a href="https://guga.or.jp/outline/" target="_blank" rel="noopener">
+            一般社団法人生成AI活用普及協会「生成AIパスポート」
+          </a>
+          <small>生成AIの基礎知識・活用・リスクに関する公式情報</small>
+        </li>
+      </ul>
+    </article>
+
+    <article class="info-card">
+      <h2>🖥️ IT・情報処理</h2>
+      <ul class="reference-list">
+        <li>
+          <a href="https://www.ipa.go.jp/shiken/" target="_blank" rel="noopener">
+            独立行政法人情報処理推進機構（IPA）「試験情報」
+          </a>
+          <small>ITパスポート、基本情報技術者試験などの公式情報</small>
+        </li>
+        <li>
+          <a href="https://www3.jitec.ipa.go.jp/JitesCbt/" target="_blank" rel="noopener">
+            ITパスポート試験
+          </a>
+          <small>ITに関する基礎知識を問う国家試験の公式サイト</small>
+        </li>
+        <li>
+          <a href="https://www.datascientist.or.jp/dscertification/" target="_blank" rel="noopener">
+            データサイエンティスト検定 リテラシーレベル（DS検定★）
+          </a>
+          <small>データサイエンス・データエンジニアリング・ビジネスの基礎に関する公式情報</small>
+        </li>
+      </ul>
+    </article>
+  </div>
+
+  <div class="reference-note">
+    <strong>参考情報について</strong>
+    <p>各ページの内容は、上記の公式サイト・公的機関の公開情報をもとに、初心者にも分かりやすいように要約・整理しています。試験日程、受験料、試験範囲などは変更される場合があるため、受験を考える場合は必ず各公式サイトで最新情報を確認してください。</p>
+    <p class="access-date">最終確認日：2026年9月30日</p>
+  </div>
+
+  <div class="next-links">
+    <button onclick="showPage('certifications')">資格を見る →</button>
+    <button onclick="showPage('quiz')">診断してみる →</button>
+  </div>
+</section>
+
+<section id="quiz" class="site-page">
+  <section class="page-hero"><span class="badge">07</span><h1>あなたがやってみたいデータサイエンスは？</h1><p>興味のある「具体的なこと」を選んでみよう。</p></section>
+  <div class="quiz">
+    <p><b>Q. もしデータを使うなら、どんなことをしてみたい？</b></p>
+    <button onclick="showResult('statistics')">📊 売上データから人気の商品を見つけたい</button>
+    <button onclick="showResult('programming')">💻 自分でWebアプリを作ってみたい</button>
+    <button onclick="showResult('ai')">🤖 AIで画像やデータを自動で判定したい</button>
+    <button onclick="showResult('business')">🏙️ 地域のデータから社会の課題を見つけたい</button>
+    <div id="result"></div>
+  </div>
+</section>
+
+</main>
+<footer>
+  <p><b>データサイエンスを知ろう</b></p>
+  <small>データサイエンスを、もっと身近に。</small><br>
+  <a href="#" onclick="showPage('references');return false;" style="font-size:13px;color:#fff;text-decoration:underline;">参考文献・参考サイト</a>
+</footer>
+
+<script>
+function showPage(pageId){
+  document.querySelectorAll(".site-page").forEach(p=>p.classList.remove("active"));
+  document.getElementById(pageId).classList.add("active");
+  document.querySelectorAll(".nav-page").forEach(a=>a.classList.remove("active"));
+  const nav=document.querySelector('.nav-page[data-page="'+pageId+'"]');
+  if(nav) nav.classList.add("active");
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function toggleInfo(id){
+  const info=document.getElementById(id);
+  const isOpen=info.classList.contains("show");
+  document.querySelectorAll(".supplement-info").forEach(item=>item.classList.remove("show"));
+  if(!isOpen) info.classList.add("show");
+}
+
+function showResult(type){
+  const results={
+    statistics:"📊 統計・データ分析に興味がありそう！ 平均・分散・仮説検定・回帰分析などを使って、データから傾向や関係を見つけます。",
+    programming:"💻 プログラミングに興味がありそう！ Pythonなどを使って、Webアプリを作ったり、データを処理したりします。",
+    ai:"🤖 AI・機械学習に興味がありそう！ データからパターンを学習させ、画像の分類や将来の予測などを行います。",
+    business:"🏙️ 社会課題×データに興味がありそう！ 人口・交通・売上などのデータを分析して、課題を発見し、改善方法を考えます。"
+  };
+  document.getElementById("result").textContent=results[type];
+}
+</script>
+</body>
+</html>
